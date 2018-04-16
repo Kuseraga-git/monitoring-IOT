@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin panel</title>
+	<link href="../static/css/main.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+	<div>
+		<h1>Sites :</h1>
+		{% block body %}
+		<section>
+			<div>
+				{% for website in websites %}
+				<div>
+					<a target="_blank" href="{{ website[0] }}">{{ website[0] }}</a>
+				</div>
+				<div>
+					code HTTP = {{ website[1] }}
+				</div>
+				<div>
+					date : {{ website[2] }}
+				</div>
+				{% endfor %}
+			</div>
+		</section>
+		{% endblock %}
+	</div>
+	<div class="box">
+		<a href="{{ url_for('add_website') }}" role="button">Ajouter un site</a>
+	</div>
+</body>
+</html>
